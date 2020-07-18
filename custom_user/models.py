@@ -14,7 +14,7 @@ class Profile(models.Model):
     address2 = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=20)
-    phone = models.IntegerField(max_length=10)
+    phone = models.IntegerField()
     email = models.EmailField()
     pic = models.FileField(upload_to='uploads/%Y/%m/%d/', default='', blank=True)
     organization = models.CharField(max_length=100)
@@ -31,7 +31,7 @@ class Profile(models.Model):
     care = models.ForeignKey('Care', on_delete=models.CASCADE)
     stability_index = models.IntegerField()
     mental_health_scores = models.IntegerField()
-    mental_health_tests = models.ForeignKey('Mental_Health_Tests', on_delete=models.CASCADE)
+    mental_health_tests = models.ForeignKey('Mental_Health_Test', on_delete=models.CASCADE)
     sentence = models.CharField(max_length=100)
     release_date = models.DateField()
 
@@ -49,7 +49,7 @@ class Certification(models.Model):
     pass
 
 
-class Mental_Health_Tests(models.Model):
+class Mental_Health_Test(models.Model):
     pass
 
 
